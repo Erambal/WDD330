@@ -35,6 +35,158 @@
         </div>  
     </main>
 
+    <section> 
+        <h2>Notes Chapter 3</h2>
+        <p>
+            pop() - 
+            This removes the last item from an array
+
+            shift() - 
+            This removes the first item from an array
+
+            push () - 
+            adds item to the end of an array
+
+            unshift () - 
+            adds item to the beginning of an array
+
+            concat() - 
+            adds an array to the end of another array
+
+            Example => avengers.concat(['Hulk','Hawkeye', 'Black Widow']);
+                        << ['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Black Widow']
+            You can also use spread operator which looks like this ...
+            avengers = [ ...avengers, ...['Hulk','Hawkeye', 'Black Widow'] ];
+            << ['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Black Widow']
+
+            join() - 
+            Turns the array into a string and replaces whatever you want the commas to be
+            avengers.join(' & ');
+            << 'Captain America & Iron Man & Thor & Hulk & Hawkeye & Black Widow'
+
+            How to use splice- 
+            avengers
+            << ['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Black Widow']
+            avengers.splice(3, 1 "Scarlet Witch");
+            
+            This will replace "hulk" and put scarlette witch instead.
+
+            avengers.splice(4, 0 "Quicksilver");
+            This will add Quick silver to the 5th position but won't replace anything because the
+            second number where the 0 is, is saying to not remove or replace anything.
+
+            Slice -
+            Slice only finds and displays the arrays you select.
+
+            Sort -
+            avengers.sort()
+            This sorts the array in alphebetical or numberical order.
+
+            indexOf - 
+            avengers.indexOf('Iron Man'); 
+            This finds the position of where Iron Man is at in the array.
+            If it's not in the array, it will return -1.
+
+            includes - 
+            avengers.includes('Ironman'); 
+            This will make a boolean to know if the value of Ironman is in the array or not.
+            avengers.includes('Black Widow', 1); 
+            This will find the second Black Widow in the array.
+
+
+            Multi Dimentional arrays - This is a good Example
+
+            coordinates[0][0]; // The first value of the first array
+            << 1
+            coordinates[1][0]; // The first value of the second array
+            << 4
+            coordinates[0][1]; // The second value of the first array
+            << 3
+            coordinates[1][1]; // The second value of the second array
+            << 2
+
+            Set & Maps 
+
+        Set - This helps keep track if any values have been duplicated in arrays.
+        const list = new Set();
+
+        list.add(1);
+            Displays => Set {1}
+        
+        list.add(2).add(3)
+            Displays => Set {1 ,2 , 3}
+
+        This works with words as well as numbers.
+        Check this out.
+
+        const moreNumbers = new Set([7,7,7,7,7,8,8,8,9,9]);
+        
+        moreNumbers will display the repeated numbers only once.
+        << Set {7,8,9}
+
+        You can use mixed types also.
+
+        Set includes .size() "to know the size of the set", 
+        .has('superman') "boolean if there is that value in the set ",
+        .delete('superman'); "to remove a value from the set"
+        .clear(); "removes everything from the set"
+
+        To turn a set into an array you can use the ...
+        Example => const shoppingArray = [...shoppingSet]
+        or you can use Array.from => const shoppingArray = Array.from(shoppingSet);
+
+
+        Map - Like a dictionary, you look up a value by the key.
+
+        You start a map like this const romanNumerals = new Map();
+
+        Use set() to expand the map. => romanNumerals.set(1,'I');
+                                        << Map { 1 => 'I' }
+
+        Same thing with .add() you can repeat .set()
+        romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V');
+        << Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }
+
+        Look up things with .get(); => romanNumerals.get(4);
+                                        << 'IV'
+        
+        While Loop 
+        while (condition) {
+            do something
+        }
+
+        This will run the code as long as the condition is true 
+
+        Beware of Infinite Loops
+
+        do ... while is same as while the difference is that the condition comes after the code.
+
+        do {
+            do something
+        } while (condition)
+        This means that the code will always run once even if the code is falsy 
+
+        For loops
+
+        for (initialization; condition; after) {
+            do something
+        }
+        can also look like this 
+
+        let bottles = 10; // bottles is initialized here instead
+        for ( ; bottles > 0 ; ) { // empty initialization and increment
+        console.log(`There were ${bottles} green bottles, hanging on a wall. And if one green bottle should accidentally fall, there'd be ${bottles-1} green bottles hanging on the wall`);
+        bottles--; // increment moved into code block
+}
+        </p>
+
+        <h2>Notes Chapter 4</h2>
+
+        <p>
+            
+        </p>
+    </section>
+
     <script src="scripts/week2.js"></script>
     <script src="../scripts/main.js"></script>
 
