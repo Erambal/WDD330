@@ -1,9 +1,11 @@
-import { Student } from './students.js';
+import {
+    Student
+} from './students.js';
 
 const students = [];
 
-const student = new Student('Kendrikc' , 'Rambal', '1564564944', ['Star Wars', 'Book of Mormon']);
-const student2 = new Student('Tom' , 'Scrudner', '15623464944', ['D & C', 'Bible']);
+const student = new Student('Kendrikc', 'Rambal', '1564564944', ['Star Wars', 'Book of Mormon']);
+const student2 = new Student('Tom', 'Scrudner', '15623464944', ['D & C', 'Bible']);
 
 
 students.push(student);
@@ -20,7 +22,7 @@ document.querySelector('#btnSave')
     .addEventListener('click', (event) => {
         event.preventDefault();
         // this will allow you to prevent the form from auto submitting
-        
+
         //create a new student
         const newStudent = new Student(
             document.querySelector('#firstName').value,
@@ -37,16 +39,16 @@ document.querySelector('#btnSave')
         document.forms[0].reset();
     });
 
-    function print() {
-        const tbody = document.querySelector('tbody');
+function print() {
+    const tbody = document.querySelector('tbody');
 
-tbody.innerHTML = students.map(
-    (student) => 
-    `<tr>
+    tbody.innerHTML = students.map(
+        (student) =>
+        `<tr>
     <td>${student.FirstName}</td>
     <td>${student.LastName}</td>
     <td>${student.INumber}</td>
     <td>${student.FavoriteBooks}</td>
     </tr>`
-).join(' ');
-    }
+    ).join(' ');
+}
