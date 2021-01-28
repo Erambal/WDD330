@@ -56,6 +56,96 @@
                 </div>
             </form>
         </section>
+
+        <section>
+            <h2>Week 4 Notes</h2>
+
+            <p>Forms
+                <br>
+                Accessing Form Elements
+                To get the first form object access using brackets
+                -> const form = document.forms[0];
+
+                You can also use the name of the attribute.
+                -> const form = document.forms['search'];
+
+                You can have access to multiple things useing this
+                -> const [input,button] = form.elements;
+
+                You can also give these attributes names in you JS
+                -> const input = form['searchInput']
+            </p>
+            <br>
+            <p>
+                Buttons
+                Here is the code to create a button and submit
+                -> <button type='submit'>Submit</button>
+                <input type='submit' value='Submit'>
+                <input type='image' src='button.png'>
+
+                To add an action add this
+                form.action = '/an/other.url'
+            </p>
+
+            <br>
+
+            <p>
+                Form Events
+
+                This is for you to put event listeners
+                -> const input = form.elements.searchInput;
+                input.addEventListener('focus', () => alert('focused'), false);
+
+                To add the hover effect do this
+                -> input.addEventListener('blur', () => alert('blurred'), false);
+
+                This gives you an alert if you changed the value inside the search box.
+                input.addEventListener('change', () => alert('changed'), false);
+            </p>
+            <br>
+            <p>Submitting a Form
+                <br>
+                Add this to main.js to send the information to the server.
+
+                const form = document.forms['search'];
+                form.addEventListener ('submit', search, false);
+                function search() {
+                alert(' Form Submitted');
+                }
+
+                To prevent from linking to another page do this
+                function search(event) {
+                    alert('Form Submitted');
+                    event.preventDefault();
+                }
+            </p>
+
+            <br>
+
+            <p>Retrieving and Changing Values from a Form</p>
+            
+            To get a value back from the user do this.
+            function search(event) {
+                alert(`You Searched for: ${input.value}`);
+                event.preventDefault();
+
+            You can also just do this.
+            input.value = 'Search Here';
+
+            To fix the text that remains in the field when the user clicks it do this.
+            input.addEventListener('focus', function(){
+                if (input.value==='Search Here') {
+                    input.value = '' 
+                }
+            }, false);
+            input.addEventListener('blur', function(){
+                if(input.value === '') {
+                    input.value = 'Search Here';
+                } }, false);
+            }
+
+
+        </section>
     </main>
     <script src="scripts/week4.js" type="module"></script>
 </body>
