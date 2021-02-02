@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/week5.css">
+    <title>Week 5 Notes</title>
+</head>
+
+<body>
+    <h1>Week 5 Notes</h1>
+
+    <p>Strict Mode
+        Use this -> 'use strict' at the beginning of a JS file
+
+        Here's what it will do.
+        'use strict';
+        e = 2.718;
+        << ReferenceError: e is not defined 
+        
+        Aren't there extensions that do the same as 'use strict'?
+    </p> 
+
+    <p>Feature Detection
+
+        To make sure that a method has browser support use ->
+        if (window.holoDeck) {
+            virtualReality.activate();
+        }
+        The example being used here is holoDeck.
+
+        You can also use Modernizr and Can I Use?
+    </p>
+
+    <p>Try, Catch, and finally 
+
+        function imaginarySquareRoot(number) {
+            'use strict';
+            try {
+                return String(squareRoot(number));
+            } catch(error) {
+                return squareRoot(-number)+'i';
+            }
+        }
+
+        function imaginarySquareRoot(number) {
+            'use strict';
+            let answer;
+            try {
+                answer = String(squareRoot(number));
+            } catch(error) {
+                answer = squareRoot(-number)+"i";
+            } finally {
+                return `+ or - ${answer}`;
+            }
+        }
+    </p>
+        
+
+    <p>Follow these steps
+
+        Write tests (that initially fail)
+
+        Write code to pass the tests
+
+        Refactor the code
+
+        Test refactored code
+
+        Write more tests for new features
+    </p>
+        <script src="scripts/week4.js" type="module"></script>
+</body>
+
+</html>
