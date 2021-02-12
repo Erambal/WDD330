@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/challenge1/styles/todo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <main>
+        <h1>To-Do List</h1>
+        <section>
+            <button class="tablinks" id="openDefault" onclick="filter(event, 'All')">All</button>
+            <button class="tablinks" onclick="filter(event, 'Active')">Active</button>
+            <button class="tablinks" onclick="filter(event, 'Completed')">Completed</button>
+            <div id="All" class="tabcontent">
+                <section>
+                    <ul></ul>
+                </section>
+            </div>
+
+            <div id="Active" class="tabcontent">
+
+            </div>
+
+            <div id="Complete" class="tabcontent">
+
+            </div>
+        </section>
+
+        <section>
+            <form>
+                <div>
+                    <input type="text" id="content" name="content" placeholder="Task..">
+                    <button id="save">+</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script>
+        function filter(evt, filterType) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(filterType).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <!-- <script src="../scripts/main.js"></script> -->
+    <script src="scripts/todos.js" type="module"></script>
+
+</body>
+
+</html>
