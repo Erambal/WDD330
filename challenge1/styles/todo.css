@@ -25,57 +25,10 @@
   transform: rotate(0deg);
 }
 
-#delete {
-  width: 30px;
-  height: 30px;
-  position:absolute;
-  right: 2%;
-  background-color: transparent;
-  border-radius: 0;
-  border: none;
-  font-size: 20px;
-  top: 15%;
-}
-
 /* Classes */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+.completed{
+  text-decoration: line-through;
 }
-
-/* Style the buttons that are used to open the tab content */
-.tablinks {
-  position: relative;
-  background-color: inherit;
-  display:inline-block;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  margin: 15px;
-  margin-bottom: 0;
-  font-size: 18px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border-top: none;
-}
-
 
 /* Non Classified */
 * {
@@ -112,7 +65,14 @@ ul li.checked {
 }
 
 button {
-
+  width: 30px;
+  height: 30px;
+  position:absolute;
+  right: 2%;
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  font-size: 20px;
 }
 
 input {
