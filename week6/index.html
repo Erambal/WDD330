@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/week5.css">
+    <title>Week 6 Notes</title>
+</head>
+
+<body>
+    <h1>Week 6 Notes</h1>
+    <p>Memoization
+        Use this to cache results for bigger functions
+        function square(x){
+            square.cache = square.cache || {};
+            if (!square.cache[x]) {
+                square.cache[x] = x*x;
+            }
+            return square.cache[x]
+        }
+    </p>
+    <p>IIFE's
+        Anonymous founctions that is invoked as soon as it's defined.
+        Helps keep from polluting var names
+        Ex. -> 
+        (function(){
+            const temp = 'World';
+            console.log(`Hello ${temp}`);
+            })();
+            << 'Hello World'
+    </p>
+    <p>
+        Temp Variables
+        That's right they are temporary variables that are not actually assigned to
+        anything. 
+        let a = 1;
+let b = 2;
+(()=>{
+    const temp = a;
+    a = b;
+    b = temp;
+})();
+a;
+<< 2
+b;
+<< 1
+console.log(temp);
+<< Error: "temp is not defined"
+
+Note that the temp only exists when IIFE is invoked.
+    </p>
+
+    <p>Initialization Code
+        You don't always need to create reusable functions. Check this out ->
+        (function() {
+            const name = 'Peter Parker'; // This might be obtained from a cookie in reality
+            const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+            const date = new Date(),today = days[date.getDay()];
+            console.log(`Welcome back ${name}. Today is ${today}`);
+        })();
+        << 'Welcome back Peter Parker. Today is Tuesday'
+        You cant also write it like this.
+
+        {
+            const name = 'Peter Parker'; // This might be obtained from a cookie in reality
+            const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+            const date = new Date(),today = days[date.getDay()];
+            console.log(`Welcome back ${name}. Today is ${today}`);
+        }
+        << 'Welcome back Peter Parker. Today is Tuesday'
+
+    </p>
+
+        <p>
+            Better way to use Strict Mode
+
+            (function() {
+                'use strict';
+            // All your code would go inside this function
+            })();
+        </p>
+
+        <p>Self-Contained Code Blocks or Embedded Code
+            You can also embed funcitons without naming them.
+            (function() {
+                // block A
+                const name = 'Block A';
+                console.log(`Hello from ${name}`);
+                }());
+                (function() {
+                // block B
+                const name = 'Block B';
+                console.log(`Hello from ${name}`);
+            }());
+            <<  Hello from Block A
+                Hello from Block B
+        </p>
+
+        <p>
+            Functions that Return Functions
+            This is the best example to explain this ->
+            function greeter(greeting = 'Hello') {
+                return function() {
+                    console.log(greeting);
+                }
+            }
+            const englishGreeter = greeter();
+            englishGreeter();
+            << Hello
+            const frenchGreeter = greeter('Bonjour');
+            frenchGreeter();
+            << Bonjour
+            const germanGreeter = greeter('Guten Tag');
+            germanGreeter();
+            << Guten Tag
+        </p>
+
+        <p>AJAX
+            grabs data from the internet and adds it to our code.
+            fetch('https://example.com/data')
+.then( // code that handles the response )
+.catch( // code that runs if the server returns an error )
+        </p>
+        <script src="scripts/week6.js" type="module"></script>
+        <script src="../scripts/main.js"></script>
+</body>
+
+</html>

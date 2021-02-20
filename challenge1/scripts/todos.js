@@ -20,39 +20,58 @@ function setTodoList() {
 
         todoItems.forEach((todoItem) => {
             todoList.innerHTML +=
-                `<li id="${todoItem.Id}">
-            <input type="checkbox" value="${todoItem.Id}">
-            <label class="checkbox">
+                `<li>
+            <label ${ todoItem.Completed ? 'class="completed"' : ''}> 
+            <input type="checkbox" value="${todoItem.Id}" ${ todoItem.Completed ? "checked" : ""}>
             ${todoItem.Content}
             </label> 
-            <button type="button" id="delete" value="x">x</button>
+            <button type="button" class="deleted" id="${todoItem.Id}" value="x">x</button>
             </li>`;
 
         });
+        // Code for the checkboxes
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(
+            checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    const id = Number(event.target.value);
+
+                    const todo = todoItems.find(todo => todo.Id === id);
+                    todo.Completed = !todo.Completed;
+
+                    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+
+                    setTodoList();
+
+                });
+            }
+        );
+        // code to delete an item
+        const deleteItems = document.querySelectorAll('input[type="button"]');
+        deleteItems.forEach(
+            deleteItem => {
+                deleteItem.addEventListener('click', (event) => {
+                    // get the id of the delete button that was clicked
+                    const id = Number(event.target.value);
+
+                    // Find the todo in the todo array that was clicked and delete
+
+                    const deletedIndex = todoItems.IndexOf(x => x.Id === deletedIndex);
+                    todoItems.splice(deletedIndex, 1);
+
+                    // Save todo list
+                    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+
+                    setTodoList();
+                });
+            }
+        );
     }
 
-};
+}
 
-// Code for the checkboxes
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-checkboxes.forEach(
-    checkbox => {
-        checkbox.addEventListener('change', (event) => {
-            const id = Number(event.target.value);
 
-            console.log(id);
-            const todo = todoItems.find(todo => todo.Id === id);
-            todo.Completed = !todo.Completed;
 
-            console.log(todoItems);
-
-            localStorage.setItem("todoItems", JSON.stringify(todoItems));
-
-            setTodoList();
-
-        });
-    }
-)
 const button = document.getElementById('save');
 button.addEventListener('click', (event) => {
     event.preventDefault();
@@ -70,32 +89,3 @@ button.addEventListener('click', (event) => {
 
     contentElement.value = '';
 })
-
-// function filter(event, filterType) {
-    // Grab the id's of the buttons
-// const tabs = document.getElementsByClassName('tablinks');
-// tabs.addEventListener('click', (event, filterType) => {
-
-    
-
-//     // Declare all variables
-//     let i, tabcontent, tablinks;
-
-//     // Get all elements with class="tabcontent" and hide them
-//     tabcontent = document.getElementsByClassName("tabcontent");
-//     for (i = 0; i < tabcontent.length; i++) {
-//         tabcontent[i].style.display = "none";
-//     }
-
-//     // Get all elements with class="tablinks" and remove the class "active"
-//     tablinks = document.getElementsByClassName("tablinks");
-//     for (i = 0; i < tablinks.length; i++) {
-//         tablinks[i].className = tablinks[i].className.replace(" active", "");
-//     }
-
-//     // Show the current tab, and add an "active" class to the button that opened the tab
-//     document.getElementById(filterType).style.display = "block";
-//     evt.currentTarget.className += " active";
-// })
-
-document.getElementById("openDefault").click();
