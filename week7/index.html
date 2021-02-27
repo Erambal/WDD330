@@ -4,14 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="swapi.css">
-
-    <title>Swapi API</title>
 </head>
 <body>
-    <main>
+<p>Translation
+    Use this to see movement in position
+    translate(x,y)
+    Here's an example on how to use this.
+    transform: translate(45px, -45px);
+    To move vertically use
+    transform: translateX(45px);
+    To move horizontally use:
+    transform: translateY(45px);
 
-    </main>
-    <script src= "scripts/swapi.js" type="module"></script>
+    Hint* Transforms don't work on inline elements
+    use display: inline block;
+</p>
+<p>Scaling
+    This makes your element grow or shrink.
+    It also works with x and y values -> scale(x,y)
+    Here's an example ->
+    transform: translateX(40px) scale(1.5);
+</p>
+<p>Rotation
+    Yep! This makes your css spin.
+    transform: rotate(10deg)
+</p>
+<p>Skew
+    This slants the element
+    tranform: skew(15deg, 4deg);
+    
+    I wonder if by using this you can make words vertical? 
+    Like one letter under the other. 
+</p>
+
+<p>Transform Origin
+    It's similar to background-position and it looks like this:
+    transform-origin: 0 0;
+    
+    You got to be careful using this though! Depends on where you
+    put the translate and rotate functions varies the looks of the element
+    For example -> transform: translateX(200px) rotate(135deg);
+    Looks different from -> transform: rotate(135deg) translateX(200px);
+</p>
+
+<p>Here are the steps to create a simple transition using only CSS:
+
+    Declare the original state of the element in the default style declaration.
+    
+    Declare the final state of your transitioned element; for example, a :hover state.
+    
+    Include the transition functions in your 
+    default style declaration using the transition
+    properties, including: transition-property , 
+    transition-duration , transition-timing-function , 
+    and transition-delay .</p>
+
+    <p>For older browsers you need to use the -webkit- prefix</p>
+
+    <p>Transition property 
+        Here's how you use this ->
+        transition-property: transform, color;
+
+        There's also a transition-duration 
+        -> transition-duration: 0.2s;
+
+        and a transition-timing-function that lets you control the pace of the transition 
+        in even more granular detail.
+
+        -> transition-timing-function: ease-out;
+
+        There's transition-delay 
+        -> transition-delay: 50ms;
+    </p>
+
+    <p>Animations
+        Use keyframes
+        -> @keyframes moveRight { 
+            from {
+            transform: translateX(-50%);
+            }
+            to {
+            transform: translateX(50%);
+            }
+        }
+        @keyframes appearDisappear { 
+            0%, 100% {
+            opacity: 0;
+            }
+            20%, 80% {
+            opacity: 1;
+            }
+        }
+        @keyframes bgMove {
+            100% {
+            background-position: 120% 0;
+            }
+        }
+    </p>
+
+<script src= "scripts/main.js"></script>
 </body>
+    <title>Document</title>
 </html>
