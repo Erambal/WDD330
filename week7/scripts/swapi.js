@@ -27,4 +27,4 @@ fetch(url)
 
         button.addEventListener("click", getUrl);
         })
-    });
+    };

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Week 10 Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <main>
+        <h1>Week 10 Notes</h1>
+        <p>Form Validation
+            Here's how you manage the CSS in form validation
+            input:invalid {
+            border: 2px dashed red;
+            }
+
+            input:valid {
+            border: 2px solid black;
+            }
+
+            And when it's required add this
+            input:invalid:required {
+            background-image: linear-gradient(to right, pink, lightgreen);
+            }
+        </p>
+
+        <p>Fetch
+            This is a good website for multiple things useing fetch! ->
+            https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+            Use this for a basic fetch request
+            fetch('http://example.com/movies.json')
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+            This is how you add multiple files to a form ->
+            async function* makeTextFileLineIterator(fileURL) {
+            const utf8Decoder = new TextDecoder('utf-8');
+            const response = await fetch(fileURL);
+            const reader = response.body.getReader();
+            let { value: chunk, done: readerDone } = await reader.read();
+            chunk = chunk ? utf8Decoder.decode(chunk) : '';
+
+            const re = /\n|\r|\r\n/gm;
+            let startIndex = 0;
+            let result;
+
+            for (;;) {
+            let result = re.exec(chunk);
+            if (!result) {
+            if (readerDone) {
+            break;
+            }
+            let remainder = chunk.substr(startIndex);
+            ({ value: chunk, done: readerDone } = await reader.read());
+            chunk = remainder + (chunk ? utf8Decoder.decode(chunk) : '');
+            startIndex = re.lastIndex = 0;
+            continue;
+            }
+            yield chunk.substring(startIndex, result.index);
+            startIndex = re.lastIndex;
+            }
+            if (startIndex < chunk.length) { // last line didn't end in a newline char yield chunk.substr(startIndex); }
+                } async function run() { for await (let line of makeTextFileLineIterator(urlOfFile)) {
+                processLine(line); } } run(); 
+            </p>
+        </main> 
+    </body>
+</html>
