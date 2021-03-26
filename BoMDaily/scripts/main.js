@@ -13,26 +13,50 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-var ref = database.ref('scriptures');
-ref.on('value', gotData, errData);
+const scriptureRef = database.ref('scriptures/English');
+scriptureRef.on('value', gotScriptures, errData);
 
-function gotData(data) {
+function gotScriptures(data) {
     // console.log(data.val());
-    const scriptures = data.val();
-    const keys = Object.keys(scriptures);
-    console.log(keys);
-
-    let i;
-    for (i = 0; i < keys.length; i++) {
-        let k = keys[i];
-        let title = English[k].title;
-        let verse = English[k].verse;
-        console.log(title, verse);
+    let scriptures = data.val();
+    let keys = Object.keys(scriptures);
+    // console.log(keys);
+    // console.log(scriptures);
+    for (var i = 0; i < keys.length; i++) {
+        const k = keys[i];
+        let title = scriptures[k].title;
+        let verse = scriptures[k].verse;
+        // console.log(title, verse);
     }
-
 } 
+
+const topicRef = database.ref('topics');
+topicRef.on('value', gotTopics, errData);
+
+function gotTopics(data) {
+  let topics = data.val();
+  let keys = Object.keys(topics);
+  // console.log(keys);
+  for (var i = 0; i < keys.length; i++) {
+    const k = keys[i];
+    let topic = topics[k];
+    let Atonement = topic[1];
+
+    console.log(Atonement);
+  }
+}
 
 function errData(err) {
     console.log('Error!');
     console.log(err);
+}
+
+// Home Screen View
+function homeView() {
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+  main.innerHTML += `
+  <div class="intro">Testing</div>
+  <p>This is a test</p>
+  `
 }
