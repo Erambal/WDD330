@@ -1,5 +1,5 @@
   // Your web app's Firebase configuration
-var firebaseConfig = {
+  var firebaseConfig = {
     apiKey: "AIzaSyBYdXE-rqto93xKrwY8orH6rXwuy4rZBiU",
     authDomain: "bom-widget.firebaseapp.com",
     databaseURL: "https://bom-widget-default-rtdb.firebaseio.com",
@@ -7,56 +7,183 @@ var firebaseConfig = {
     storageBucket: "bom-widget.appspot.com",
     messagingSenderId: "911571470762",
     appId: "1:911571470762:web:48dc4bd13f5434a2ea83d3"
-};
+  };
   // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
-const database = firebase.database();
+  const database = firebase.database();
 
-const scriptureRef = database.ref('scriptures/English');
-scriptureRef.on('value', gotScriptures, errData);
+//   function readScripture(){
+//   const scriptureRef = database.ref('scriptures/English');
+//   scriptureRef.on('value', function(snapshot) {
+//     snapshot.forEach(snap => {
+//       const scripture = snap.val();
 
-function gotScriptures(data) {
-    // console.log(data.val());
-    let scriptures = data.val();
-    let keys = Object.keys(scriptures);
+//       const title = scripture.title;
+//       const titles = [title];
+//       const length = title.length;
+//       const index = Math.floor(Math.random() * length);
+//       const randomTitle = titles[index];
+
+//       document.querySelector('main').innerHTML = `
+//       <div>${randomTitle}</div>`
+
+//       console.log(randomTitle);
+//     })
+//   })
+// }
+// readScripture();
+
+  const topicRef = database.ref('topics');
+  topicRef.on('value', gotTopics, errData);
+
+  function gotTopics(data) {
+    let topics = data.val();
+    let keys = Object.keys(topics);
     // console.log(keys);
-    // console.log(scriptures);
-    for (var i = 0; i < keys.length; i++) {
-        const k = keys[i];
-        let title = scriptures[k].title;
-        let verse = scriptures[k].verse;
-        // console.log(title, verse);
-    }
-} 
+    // for (var i = 0; i < keys.length; i++) {
+      const k = keys;
+      let topic = [k];
+      const length = keys.length;
+      const index = Math.floor(Math.random() * length);
+      const randomTopic = topic[index];
+      console.log(randomTopic);
+      document.querySelector('main').innerHTML = `
+    <div id="topic">${keys[1]}</div>
 
-const topicRef = database.ref('topics');
-topicRef.on('value', gotTopics, errData);
-
-function gotTopics(data) {
-  let topics = data.val();
-  let keys = Object.keys(topics);
-  // console.log(keys);
-  for (var i = 0; i < keys.length; i++) {
-    const k = keys[i];
-    let topic = topics[k];
-    let Atonement = topic[1];
-
-    console.log(Atonement);
+    `
+    // }
   }
-}
 
-function errData(err) {
+  // console.log(gotTopics);
+
+  function errData(err) {
     console.log('Error!');
     console.log(err);
-}
+  }
 
-// Home Screen View
-function homeView() {
-  const main = document.querySelector('main');
-  main.innerHTML = '';
-  main.innerHTML += `
-  <div class="intro">Testing</div>
-  <p>This is a test</p>
+  homeView();
+
+  // Home Screen View
+  function homeView() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    main.innerHTML += `
+  <div class="intro">${gotTopics}</div>
+  
   `
-}
+  }
+
+  const button = document.querySelector('#settings');
+  button.addEventListener('click', event => {
+    console.log('next');
+    settingsView();
+  })
+
+  // Settings View
+  function settingsView() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    main.innerHTML += `
+  <button id="backbtn">&#x21E6;</button>
+  <div class="setting-option" id="settings-topic">
+  <h1>Topics</h1></div>
+  <div class="setting-option" id="settings-time">
+  <h1>Time</h1></div>
+  <div class="setting-option" id="settings-color">
+  <h1>Color Scheme</h1></div>
+  <div class="setting-option" id="settings-font">
+  <h1>Font Size</h1></div>
+
+  `
+    const footer = document.querySelector('footer');
+    footer.innerHTML = '';
+
+    const backbtn = document.querySelector('#backbtn');
+    backbtn.addEventListener('click', event => {
+      console.log('back');
+      homeView();
+    })
+
+    const topicSetting = document.querySelector('#settings-topic');
+    topicSetting.addEventListener('click', event => {
+      topicView();
+    })
+    const timeSetting = document.querySelector('#settings-time');
+    timeSetting.addEventListener('click', event => {
+      timeView();
+    })
+    const colorSetting = document.querySelector('#settings-color');
+    colorSetting.addEventListener('click', event => {
+      colorView();
+    })
+    const fontSetting = document.querySelector('#settings-font');
+    fontSetting.addEventListener('click', event => {
+      fontView();
+    })
+  }
+
+
+
+  // Topics View
+  function topicView() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    main.innerHTML += `
+  <button id="backbtn">&#x21E6;</button>
+  `
+    const backbtn = document.querySelector('#backbtn');
+    backbtn.addEventListener('click', event => {
+      // console.log('back');
+      settingsView();
+    })
+  }
+  // Time Settings View
+  function timeView() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    main.innerHTML += `
+  <button id="backbtn">&#x21E6;</button>
+  `
+    const backbtn = document.querySelector('#backbtn');
+    backbtn.addEventListener('click', event => {
+      // console.log('back');
+      settingsView();
+    })
+  }
+
+  // Color Scheme View
+  function colorView() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    main.innerHTML += `
+  <button id="backbtn">&#x21E6;</button>
+  <div class="setting-option" id="settings-topic">
+  <h1>Red</h1></div>
+  <div class="setting-option" id="settings-time">
+  <h1>Blue</h1></div>
+  <div class="setting-option" id="settings-color">
+  <h1>Green</h1></div>
+  <div class="setting-option" id="settings-font">
+  <h1>Yellow</h1></div>
+  `
+    const backbtn = document.querySelector('#backbtn');
+    backbtn.addEventListener('click', event => {
+      // console.log('back');
+      settingsView();
+    })
+  }
+
+  // Font Size Settings View
+  function fontView() {
+    const main = document.querySelector('main');
+    main.innerHTML = '';
+    main.innerHTML += `
+  <button id="backbtn">&#x21E6;</button>
+  `
+    const backbtn = document.querySelector('#backbtn');
+    backbtn.addEventListener('click', event => {
+      // console.log('back');
+      settingsView();
+    })
+  }

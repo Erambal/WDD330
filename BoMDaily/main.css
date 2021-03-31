@@ -1,0 +1,103 @@
+/* main */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border-radius: 50%;
+    background-color: #7EAFCB;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border: none;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 2%;
+}
+
+/* classes */
+
+.setting-option {
+    display: inline-block;
+    height: 25vh;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+.setting-option h1 {
+    margin-top: 15%;
+    color: white;
+    font-size: 50px;
+}
+
+
+/* id's */
+
+#topic {
+    width: 100%;
+    text-align: center;
+    font-size: 55px;
+    padding: 20%;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #7EAFCB;
+    margin: 0;
+    color: white;
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+}
+
+#settings {
+    position: absolute;
+    left: 10%;
+}
+
+#settings img {
+    width: 30px;
+}
+
+#backbtn {
+    position: absolute;
+    left: 5%;
+    top: 2%;
+    border-radius: 15%;
+    height: 40px;
+    background-color: rgba(239, 245, 245, 0.2);
+    color: white;
+    font-size: 35px;
+    padding: 0;
+}
+
+#gl-link img {
+    width: 30px;
+}
+
+#notes {
+    position: absolute;
+    right: 10%;
+}
+
+#notes img {
+    width: 30px;
+}
+
+#settings-topic {
+ background-color: #E27474;
+}
+#settings-time {
+    background-color: #7EAFCB;
+}
+#settings-color {
+    background-color: #94D67D;
+}
+#settings-font {
+    background-color: #E7CC6E;
+}
