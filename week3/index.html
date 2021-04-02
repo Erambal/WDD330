@@ -13,10 +13,13 @@
         <h1>Week 3 Notes</h1>
 
         <p>
-        .this 
+        <h2>.this</h2> 
         This command allows you to grab something specific from an object
-
+            <br>
+            <br>
         EXAMPLE:
+        <pre>
+            <code>
         let user = {
             name: "John",
             age: 30,
@@ -29,23 +32,28 @@
           };
           
           user.sayHi(); // John
+        </code>
+        </pre>
 
           This will display the name of the user -> John
 </p>
 <p>
           Objects are variables with attributes. For example:
-          const superman = {
-            name: 'Superman',
-            'real name': 'Clark Kent',
-            height: 75,
-            weight: 235,
-            hero: true,
-            villain: false,
-            allies: ['Batman','Supergirl','Superboy'],
-            fly() {
-                return 'Up, up and away!';
-            }
-        };
+          <pre><code>
+            const superman = {
+                name: 'Superman',
+                'real name': 'Clark Kent',
+                height: 75,
+                weight: 235,
+                hero: true,
+                villain: false,
+                allies: ['Batman','Supergirl','Superboy'],
+                fly() {
+                    return 'Up, up and away!';
+                }
+            };
+          </code></pre>
+     
 
         Here we created superman and then added attributes to him.
 
@@ -55,52 +63,65 @@
             To access an attribute better called a property you use the notation
             you previously used. 
 
-            superman.name 
-            << 'Superman'
-
-            or you could use superman['name']
-            Use this when you want to add a space between the property
-            
-            superman["real" + " " + "name"] // the property is built using string concatenation
-            << "Clark Kent"
+            <pre><code>
+                superman.name 
+                << 'Superman'
+    
+                or you could use superman['name']
+                Use this when you want to add a space between the property
+                
+                superman["real" + " " + "name"] // the property is built using string concatenation
+                << "Clark Kent"</code></pre>
 
         </p>
 
-        <p> Symbol can be used to add a property to an object 
-            const name = Symbol('name');
+        <p> Symbols can be used to add a property to an object 
+            <pre><code>
+                const name = Symbol('name');
+            </code></pre>
 
 
             QUESTION: Does using Symbol automatically make properties inside of it
             camelCase? 
-            -> const realName = Symbol('real name');
+            -> 
+            <pre><code>
+                const realName = Symbol('real name');
                 supergirl[realName] = 'Kara Danvers';
                 << 'Kara Danvers'
+            </code></pre>
 
         </p>
 
         <p>Methods 
             parenthesis always have to placed after method name:
-            superman.fly()
-            << 'Up, up and away!'
-
-            or you can use
-            superman['fly']()
-            << 'Up, up and away!'
+            <pre><code>
+                superman.fly()
+                << 'Up, up and away!'
+    
+                or you can use
+                superman['fly']()
+                << 'Up, up and away!'
+            </code></pre>
+           
         </p>
-<p>in
-    use this to check if an object has a property in it.
-    -> 'city' in superman;
+<p>Use this to check if an object has a property in it.
+    <pre><code>
+        'city' in superman;
         << false
     You can also use .hasOwnProperty
     -> superman.hasOwnProperty('city');
         << false
         superman.hasOwnProperty('name');
         << true
+    </code></pre> 
+    
 </p>
 
-<p>Object.keys()
+<p>
+    <h2>Object.keys()</h2>
     This will return an array of all the keys of the object
-    -> for(const key of Object.keys(superman)) {
+    <pre><code>
+        for(const key of Object.keys(superman)) {
         console.log(key);
     }
     <<  name
@@ -110,46 +131,57 @@
         hero
         villain
         allies
-        fly
+        fly</code></pre> 
 
-        You can also use Object.values to see the value of everything
+        You can also use Object .values to see the value of everything
         You can also use Object .entries to see both values and keys
 </p>
 
 <p>To add a property
     Just assign a new property
-    superman.city = 'Metropolis';
+    <pre><code>
+        superman.city = 'Metropolis';
     << 'Metropolis' 
+    </code></pre>
 </p>
 
 <p>To change a property
     Reassign it.
-    superman['real name'] = 'Kal-El';
+    <pre><code>
+        superman['real name'] = 'Kal-El';
     << 'Kal-El'
+    </code></pre>
 </p>
 
 <p>To remove a property 
     Use delete
-    delete superman.fly
+    <pre><code>
+        delete superman.fly
+    </code></pre>
+    
 </p>
 
 <p>Nesting
-    const justiceLeague = {
-        superman: { realName: 'Clark Kent' },
-        batman: { realName: 'Bruce Wayne' },
-        wonderWoman: { realName: 'Diana Prince" },
-        flash: { realName: 'Barry Allen' },
-        aquaman: { realName: 'Arthur Curry' },
-    }
+    <pre><code>
+        const justiceLeague = {
+            superman: { realName: 'Clark Kent' },
+            batman: { realName: 'Bruce Wayne' },
+            wonderWoman: { realName: 'Diana Prince" },
+            flash: { realName: 'Barry Allen' },
+            aquaman: { realName: 'Arthur Curry' },
+        }
+    </code></pre>
+    
 </p>
 
 <p>
     Objects as Parameters in Functions
-
-    function greet({greeting,name,age}) {
+    <pre><code> 
+        function greet({greeting,name,age}) {
         return `${greeting}! My name is ${name} and I am ${age} years old.`;
         
-    }
+    }</code></pre>
+  
 </p>
     </main>
 

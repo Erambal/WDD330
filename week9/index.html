@@ -13,100 +13,114 @@
 <body>
     <h1>Week 9 Notes</h1>
     <p>In a browser environment, the global object is the window object.
-        x = 6; // global variable created
-        << 6 window.x // same variable can be accessed as a property of the window object
-        << 6 // both variables are exactly the same window.x===x; << true 
+    <pre><code> x = 6; // global variable created
+        << 6 window.x
+        // same variable can be accessed
+        as a property of the window object
+        << 6 // both variables are exactly
+        the same window.x===x; << true </code></pre>   
     </p>
-    <p>The window.confirm() method will stop the execution of the program and display a confirmation dialog
-        window.confirm('Do you wish to continue?');
-    </p>
-    <p>The window.prompt() method will stop the execution of the program. 
-        window.prompt('Please enter your name:');
-    </p>
-    <p>The window.location property is an object that contains information about the URL of the current page. 
-        window.location.href 
-<< "https://www.sitepoint.com/premium/books/javascript-novice-to-ninja"
-    </p>
-    <p>A new window can be opened using the window.open() method.
-        const popup = window.open('https://sitepoint.com','
-SitePoint','width=400,height=400,resizable=yes');
-    </p>
-<p>window.moveTo(0,0); // will move the window to the top-left corner of the screen</p>
-<p>You can resize a window using the window.resizeTo() method. 
+    <p>The window.confirm() method will stop the execution of the program and display a confirmation dialog   </p>
+    <pre><code>window.confirm('Do you wish to continue?');</code></pre> 
+  
+    <p>The window.prompt() method will stop the execution of the program. </p>
+      <pre><code>window.prompt('Please enter your name:');</code></pre>  
+    
+    <p>The window.location property is an object that contains information about the URL of the current page.  </p>
+     <pre><code>window.location.href 
+<< "https://www.sitepoint.com"</code></pre>   
+   
+    <p>A new window can be opened using the window.open() method.</p>
+    <pre><code>const popup = window.open('https://sitepoint.com','
+SitePoint','width=400,height=400,resizable=yes');</code></pre>    
+    <p></p>
+<pre><code>window.moveTo(0,0); 
+    // will move the window to the top-left
+    corner of the screen</code></pre>
+    <p></p>
+<pre><code> You can resize a window using the window.resizeTo() method. 
     window.resizeTo(600,400);
-</p>
-<p>The write() method simply writes a string of text to the page. If a page has already loaded, it will completely replace the current document:
-    document.write('<h2>Hello, world!</h2>');
-</p>
-<p>COOKIES!
-    document.cookie = 'name=Superman';
-<< "name=Superman"
-Adding the string ; secure to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network:
+</code></pre>
+<p>The write() method simply writes a string of text to the page. If a page has already loaded, it will completely replace the current document: </p>
+<pre><code>document.write('<h2>Hello, world!</h2>');</code></pre> 
+<h2>COOKIES! </h2>
+    <pre><code>document.cookie = 'name=Superman';
+        << "name=Superman"</code></pre>
+<p>Adding the string ; secure to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network:</p> 
+<pre><code>document.cookie = 'name=Batman; secure';</code></pre>
 
-document.cookie = 'name=Batman; secure';
-</p>
-<p>setTimeout()
-    window.setTimeout( () => alert("Time's Up!"), 3000);
-<< 4
-</p>
+
+<h2>setTimeout()</h2>
+   <pre><code> window.setTimeout( () => alert("Time's Up!"), 3000);
+    << 4</code></pre>
+
 <p>The window.setInterval() method works in a similar way to window.setTimeout() ,
 except that it will repeatedly invoke the callback function after every given
 number of milliseconds.</p>
 
 
 <h2>Chapter 14</h2>
-<p>Each element has a dataset property that can be used to access any data- attributes it contains. Here’s an example of some markup:
+<p>Each element has a dataset property that can be used to access any data- attributes it contains. Here’s an example of some markup: </p>
+<pre><code>div id='hero' data-powers='flight superSpeed'>
+    Superman
+/div></code></pre>
+    
+    <p>The data-powers attribute can be accessed using the following code: </p>
 
-    <div id='hero' data-powers='flight superSpeed'>
-        Superman
-    </div></p>
-    <p>The data-powers attribute can be accessed using the following code:
-
-        const superman = document.getElementById('hero');
+       <pre><code> const superman = document.getElementById('hero');
         const powers = superman.dataset.powers;
-        << 'flight superSpeed'</p>
-<p>Here is a basic example of storing information. To save a value locally, use:
+        << 'flight superSpeed'</code></pre>
+<p>Here is a basic example of storing information. To save a value locally, use:</p>
 
-    localStorage.setItem('name', 'Walter White');
-    To illustrate that it’s being saved locally, try completely closing your browser, reopening it, and entering the following code in the console:
+<pre><code>localStorage.setItem('name', 'Walter White'); </code></pre>
+   <p> To illustrate that it’s being saved locally, try completely closing your browser, reopening it, and entering the following code in the console: </p>
 
-    localStorage.getItem('name'); 
-    << "Walter White"</p>
+   <pre><code>localStorage.getItem('name'); 
+    << "Walter White"</code></pre> 
+    
 
-    <p>If geolocation is available, it will be a property of the navigator object that we met in Chapter 9. This property has a method called getCurrentPosition() that will return a position object to a specified callback function, called youAreHere() in the example:
-
-        navigator.geolocation.getCurrentPosition(youAreHere);
-        The position object passed to the youAreHere() function has a coords property with a latitude and longitude property, which together give the coordinates of the device. These coordinates can then be used in conjunction with other applications or web services (such as a mapping service) to obtain the user’s exact location. In this example, we simply show an alert dialog that displays the user’s coordinates:
+    <p>If geolocation is available, it will be a property of the navigator object that we met in Chapter 9. This property has a method called getCurrentPosition() that will return a position object to a specified callback function, called youAreHere() in the example: </p>
+<pre><code>
+navigator.geolocation.getCurrentPosition(youAreHere); </code></pre>
+       <p> The position object passed to the youAreHere() function has a coords property with a latitude and longitude property, which together give the coordinates of the device. These coordinates can then be used in conjunction with other applications or web services (such as a mapping service) to obtain the user’s exact location. In this example, we simply show an alert dialog that displays the user’s coordinates: </p>
         
-        function youAreHere(position) {
-            console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`); 
-        }</p>
+       <pre><code>
+function youAreHere(position) {
+console.log(`Latitude: ${position.coords.latitude},
+ Longitude: ${position.coords.longitude}`); 
+}
+       </code></pre> 
 
-        <p>Notifications
-            The Notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen, but it changes depending on the operating system. An advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab.
+        <h2>Notifications</h2>
+           <p> The Notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen, but it changes depending on the operating system. An advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab. </p>
             
-            Before you can send notifications, you need to get permission granted by the user. This can be achieved using the requestPermission() method of a Notification global object. To try this out, visit any website in your browser (https://sitepoint.comfor example), and enter the following code in the console:
-            
-            if(window.Notification) {
-                Notification.requestPermission();
-            }
+            <p>Before you can send notifications, you need to get permission granted by the user. This can be achieved using the requestPermission() method of a Notification global object. To try this out, visit any website in your browser (https://sitepoint.comfor example), and enter the following code in the console:</p>
+            <pre><code>
+if(window.Notification) {
+Notification.requestPermission();
+}
 
-            Example
-            if(window.Notification) {
-                Notification.requestPermission()
-                .then((permission) => {
-                    if(Notification.permission === 'granted') {
-                    new Notification('Hello JavaScript!');
-                    }
-                });
-            }
+Example
+if(window.Notification) {
+Notification.requestPermission()
+.then((permission) => {
+    if(Notification.permission === 'granted') {
+    new Notification('Hello JavaScript!');
+    }
+});
+}
+            </code></pre>
+           
         
-            These include body that specifies any text that you want to appear below the title, and icon where you can specify a link to an image that will be displayed as part of the notification:
-
-            const notification = new Notification('JavaScript: Novice to Ninja',{
-                body: 'The new book from SitePoint',
-                icon: 'sitepointlogo.png'
-            });</p>
+           <p>These include body that specifies any text that you want to appear below the title, and icon where you can specify a link to an image that will be displayed as part of the notification:</p> 
+            <pre><code>
+const notification = new Notification('JavaScript:
+ Novice to Ninja',{
+body: 'The new book from SitePoint',
+icon: 'sitepointlogo.png'
+});
+            </code></pre>
+           
 
  <!-- Trigger/Open The Modal -->
  <button id="menuBtn">Menu</button>

@@ -12,31 +12,34 @@
 
 <body>
     <h1>Week 5 Notes</h1>
-
-    <p>Strict Mode
-        Use this -> 'use strict' at the beginning of a JS file
-
-        Here's what it will do.
-        'use strict';
+    <h2>Strict Mode</h2>
+    <div>
+        
+       <p>Use this -> 'use strict' at the beginning of a JS file
+<br>
+        Here's what it will do.</p> 
+        <pre><code>
+            'use strict';
         e = 2.718;
         << ReferenceError: e is not defined 
+        </code></pre>
         
-        Aren't there extensions that do the same as 'use strict'?
-    </p> 
+       <p>Aren't there extensions that do the same as 'use strict'?</p> 
+    </div> 
 
     <p>Feature Detection
 
         To make sure that a method has browser support use ->
-        if (window.holoDeck) {
+        <pre><code>if (window.holoDeck) {
             virtualReality.activate();
-        }
-        The example being used here is holoDeck.
-
-        You can also use Modernizr and Can I Use?
+        }</code></pre>
+       <p> The example being used here is holoDeck.</p> 
+        <br>
+        <p>You can also use Modernizr and Can I Use?</p>
     </p>
 
-    <p>Try, Catch, and finally 
-
+    <h2>Try, Catch, and finally</h2>
+       <pre><code>
         function imaginarySquareRoot(number) {
             'use strict';
             try {
@@ -57,21 +60,26 @@
                 return `+ or - ${answer}`;
             }
         }
-    </p>
+       </code></pre> 
         
 
-    <p>Follow these steps
+   <h2>Follow these steps</h2> 
+<ul style="text-align: left;";>
+<li>Write tests (that initially fail)</li>
+<li>Write code to pass the tests</li>
+<li>Refactor the code</li>
+<li>Test refactored code</li>
+<li>Write more tests for new features</li>
+</ul>
+      
 
-        Write tests (that initially fail)
+       
 
-        Write code to pass the tests
 
-        Refactor the code
+      
 
-        Test refactored code
-
-        Write more tests for new features
-    </p>
+       
+    
 
      <!-- Trigger/Open The Modal -->
 <button id="menuBtn">Menu</button>

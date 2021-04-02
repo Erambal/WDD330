@@ -14,32 +14,33 @@
     <h1>Week 4 Notes</h1>
 
     <main>
-        <section>
+        <div id="week4">
             <p>Forms
                 <br>
                 Accessing Form Elements
                 To get the first form object access using brackets
-                -> const form = document.forms[0];
+                <pre><code>const form = document.forms[0];</code></pre> 
 
                 You can also use the name of the attribute.
-                -> const form = document.forms['search'];
+                <pre><code>const form = document.forms['search'];</code></pre>
 
                 You can have access to multiple things useing this
-                -> const [input,button] = form.elements;
+                <pre><code>const [input,button] = form.elements;</code></pre>
+            
 
                 You can also give these attributes names in you JS
-                -> const input = form['searchInput']
+                <pre><code>const input = form['searchInput']</code></pre>
             </p>
             <br>
             <p>
                 Buttons
                 Here is the code to create a button and submit
-                -> <button type='submit'>Submit</button>
-                <input type='submit' value='Submit'>
-                <input type='image' src='button.png'>
-
-                To add an action add this
-                form.action = '/an/other.url'
+                <pre><code>
+button type='submit'>Submit</button>
+input type='submit' value='Submit'>
+input type='image' src='button.png'>
+// To add an action add this
+pre form.action = '/an/other.url'</code></pre>
             </p>
 
             <br>
@@ -48,32 +49,39 @@
                 Form Events
 
                 This is for you to put event listeners
-                -> const input = form.elements.searchInput;
-                input.addEventListener('focus', () => alert('focused'), false);
+                <pre><code>
+const input = form.elements.searchInput;
+input.addEventListener('focus',
+ () => alert('focused'), false);</code></pre>
 
                 To add the hover effect do this
-                -> input.addEventListener('blur', () => alert('blurred'), false);
+                <pre><code>
+input.addEventListener('blur',
+ () => alert('blurred'), false);</code></pre>  
 
                 This gives you an alert if you changed the value inside the search box.
-                input.addEventListener('change', () => alert('changed'), false);
+                <pre><code>
+input.addEventListener('change', 
+() => alert('changed'), false);</code></pre>  
             </p>
             <br>
             <p>Submitting a Form
                 <br>
                 Add this to main.js to send the information to the server.
-
-                const form = document.forms['search'];
-                form.addEventListener ('submit', search, false);
-                function search() {
-                alert(' Form Submitted');
-                }
-
+                <pre><code>
+const form = document.forms['search'];
+form.addEventListener
+ ('submit', search, false);
+function search() {
+alert(' Form Submitted');
+            }</code></pre>
+               
                 To prevent from linking to another page do this
-                function search(event) {
-                    alert('Form Submitted');
-                    event.preventDefault();
-                }
-
+        <pre><code>
+function search(event) {
+    alert('Form Submitted');
+    event.preventDefault();
+}</code></pre>
 
                 What are all the defaults of a form?
             </p>
@@ -84,31 +92,34 @@
             
             <p>
             To get a value back from the user do this.
-            function search(event) {
-                alert(`You Searched for: ${input.value}`);
-                event.preventDefault();
+            <pre><code>
+function search(event) {
+alert(`You Searched for: ${input.value}`);
+event.preventDefault();
 
-            You can also just do this.
-            input.value = 'Search Here';
-
+//You can also just do this.
+input.value = 'Search Here';
+</code></pre>
+            
             How can you get the data the user turns in? 
 
             To fix the text that remains in the field when the user clicks it do this.
-            input.addEventListener('focus', function(){
-                if (input.value==='Search Here') {
-                    input.value = '' 
-                }
-            }, false);
-            input.addEventListener('blur', function(){
-                if(input.value === '') {
-                    input.value = 'Search Here';
-                } }, false);
-            }
+            <pre><code>
+input.addEventListener('focus', function(){
+if (input.value==='Search Here') {
+    input.value = '' 
+}
+}, false);
+input.addEventListener('blur', function(){
+if(input.value === '') {
+    input.value = 'Search Here';
+} }, false);
+}
+            </code></pre>
 
             What does focus, blur, and change actually do? Is it like css?
         </p>
-
-        </section>
+    </div>
     </main>
      <!-- Trigger/Open The Modal -->
 <button id="menuBtn">Menu</button>

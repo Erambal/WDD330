@@ -12,61 +12,76 @@
 <body>
     <main>
         <h1>Week 10 Notes</h1>
-        <p>Form Validation
-            Here's how you manage the CSS in form validation
-            input:invalid {
-            border: 2px dashed red;
-            }
+        <h2>Form Validation </h2>
+            <p>Here's how you manage the CSS in form validation</p> 
+            <pre><code> 
+                input:invalid {
+                border: 2px dashed red;
+                }
+    
+                input:valid {
+                border: 2px solid black;
+                }</code></pre>
 
-            input:valid {
-            border: 2px solid black;
-            }
+            <p>And when it's required add this</p>
+           <pre><code>
+input:invalid:required {
+background-image: linear-gradient
+(to right, pink, lightgreen);
+}
+           </code></pre>
+        
 
-            And when it's required add this
-            input:invalid:required {
-            background-image: linear-gradient(to right, pink, lightgreen);
-            }
-        </p>
-
-        <p>Fetch
+        <h2>Fetch</h2>
+           <p>
             This is a good website for multiple things useing fetch! ->
             https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+           </p> 
+           <p>Use this for a basic fetch request</p> 
+<pre><code>
+fetch('http://example.com/movies.json')
+.then(response => response.json())
+.then(data => console.log(data));
+</code></pre>
+          <p>This is how you add multiple files to a form -></p>  
+          <pre><code>
+async function* makeTextFileLineIterator(fileURL) {
+const utf8Decoder = new TextDecoder('utf-8');
+const response = await fetch(fileURL);
+const reader = response.body.getReader();
+let { value: chunk, done: readerDone } =
+ await reader.read();
+chunk = chunk ? utf8Decoder.decode(chunk) : '';
 
-            Use this for a basic fetch request
-            fetch('http://example.com/movies.json')
-            .then(response => response.json())
-            .then(data => console.log(data));
+const re = /\n|\r|\r\n/gm;
+let startIndex = 0;
+let result;
 
-            This is how you add multiple files to a form ->
-            async function* makeTextFileLineIterator(fileURL) {
-            const utf8Decoder = new TextDecoder('utf-8');
-            const response = await fetch(fileURL);
-            const reader = response.body.getReader();
-            let { value: chunk, done: readerDone } = await reader.read();
-            chunk = chunk ? utf8Decoder.decode(chunk) : '';
-
-            const re = /\n|\r|\r\n/gm;
-            let startIndex = 0;
-            let result;
-
-            for (;;) {
-            let result = re.exec(chunk);
-            if (!result) {
-            if (readerDone) {
-            break;
-            }
-            let remainder = chunk.substr(startIndex);
-            ({ value: chunk, done: readerDone } = await reader.read());
-            chunk = remainder + (chunk ? utf8Decoder.decode(chunk) : '');
-            startIndex = re.lastIndex = 0;
-            continue;
-            }
-            yield chunk.substring(startIndex, result.index);
-            startIndex = re.lastIndex;
-            }
-            if (startIndex < chunk.length) { // last line didn't end in a newline char yield chunk.substr(startIndex); }
-                } async function run() { for await (let line of makeTextFileLineIterator(urlOfFile)) {
-                processLine(line); } } run(); 
+for (;;) {
+let result = re.exec(chunk);
+if (!result) {
+if (readerDone) {
+break;
+}
+let remainder = chunk.substr(startIndex);
+({ value: chunk, done: readerDone } = 
+await reader.read());
+chunk = remainder + 
+(chunk ? utf8Decoder.decode(chunk) : '');
+startIndex = re.lastIndex = 0;
+continue;
+}
+yield chunk.substring(startIndex, result.index);
+startIndex = re.lastIndex;
+}
+if (startIndex < chunk.length) 
+{ // last line didn't end in a newline
+ char yield chunk.substr(startIndex); }
+} async function run() { for await 
+    (let line of makeTextFileLineIterator(urlOfFile)) {
+processLine(line); } } run();
+          </code></pre>
+             
             </p>
         </main> 
          <!-- Trigger/Open The Modal -->

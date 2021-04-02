@@ -1,24 +1,5 @@
-table tr,
-td,
-th {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
+main {
+    width: 100px;
+    display: inline;
 
-div {
-    margin: 5px;
-}
-
-label {
-    display: inline-block;
-    min-width: 90px;
-}
-
-section {
-    margin: 10px;
-}
-
-td,
-th {
-    padding: 5px
 }

@@ -12,79 +12,99 @@
 
 <body>
     <h1>Week 6 Notes</h1>
-    <p>Memoization
-        Use this to cache results for bigger functions
-        function square(x){
+    <h2>Memoization</h2>
+       <p> Use this to cache results for bigger functions</p>
+        
+        <pre><code>
+            function square(x){
             square.cache = square.cache || {};
             if (!square.cache[x]) {
                 square.cache[x] = x*x;
             }
             return square.cache[x]
-        }
-    </p>
-    <p>IIFE's
-        Anonymous founctions that is invoked as soon as it's defined.
+        }</code></pre>
+    <h2>IIFE's</h2>
+       <p>Anonymous founctions that is invoked as soon as it's defined.
         Helps keep from polluting var names
-        Ex. -> 
+        Ex. </p> 
+       <pre><code>
         (function(){
-            const temp = 'World';
-            console.log(`Hello ${temp}`);
-            })();
-            << 'Hello World'
-    </p>
-    <p>
-        Temp Variables
-        That's right they are temporary variables that are not actually assigned to
-        anything. 
-        let a = 1;
-let b = 2;
-(()=>{
-    const temp = a;
-    a = b;
-    b = temp;
-})();
-a;
-<< 2
-b;
-<< 1
-console.log(temp);
-<< Error: "temp is not defined"
-
-Note that the temp only exists when IIFE is invoked.
-    </p>
-
-    <p>Initialization Code
-        You don't always need to create reusable functions. Check this out ->
-        (function() {
-            const name = 'Peter Parker'; // This might be obtained from a cookie in reality
-            const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
-            const date = new Date(),today = days[date.getDay()];
-            console.log(`Welcome back ${name}. Today is ${today}`);
+        const temp = 'World';
+        console.log(`Hello ${temp}`);
         })();
-        << 'Welcome back Peter Parker. Today is Tuesday'
+        << 'Hello World'</code></pre> 
+        
+        <h2>Temp Variables</h2>
+       <p> That's right they are temporary variables that are not actually assigned to
+        anything. </p>
+        <pre><code>
+            let a = 1;
+            let b = 2;
+            (()=>{
+                const temp = a;
+                a = b;
+                b = temp;
+            })();
+            a;
+            << 2
+            b;
+            << 1
+            console.log(temp);
+            << Error: "temp is not defined"
+            </code></pre>
+<p>Note that the temp only exists when IIFE is invoked.
+    </p>
+
+    <h2>Initialization Code</h2>
+        You don't always need to create reusable functions. Check this out ->
+<pre><code>
+(function() {
+const name = 'Peter Parker';
+// This might be obtained 
+from a cookie in reality
+const days = ['Sunday','Monday',
+'Tuesday','Wednesday','Thursday', 
+'Friday','Saturday'];
+const date = new Date(),today = 
+days[date.getDay()];
+console.log(`Welcome back ${name}. 
+Today is ${today}`);
+})();
+<< 'Welcome back Peter Parker. 
+Today is Tuesday'</code></pre>
         You cant also write it like this.
 
-        {
-            const name = 'Peter Parker'; // This might be obtained from a cookie in reality
-            const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
-            const date = new Date(),today = days[date.getDay()];
-            console.log(`Welcome back ${name}. Today is ${today}`);
-        }
-        << 'Welcome back Peter Parker. Today is Tuesday'
+      <pre><code>
+{
+    const name = 'Peter Parker';
+     // This might be obtained
+      from a cookie in reality
+    const days = ['Sunday','Monday',
+    'Tuesday','Wednesday','Thursday',
+     'Friday','Saturday'];
+    const date = new Date(),today =
+     days[date.getDay()];
+    console.log(`Welcome back ${name}.
+     Today is ${today}`);
+}
+<< 'Welcome back Peter Parker. Today is Tuesday'
 
+      </code></pre>
     </p>
 
         <p>
             Better way to use Strict Mode
 
-            (function() {
-                'use strict';
-            // All your code would go inside this function
-            })();
+           <pre><code>
+(function() {
+    'use strict';
+// All your code would go inside this function
+})();</code></pre>
         </p>
 
-        <p>Self-Contained Code Blocks or Embedded Code
-            You can also embed funcitons without naming them.
+<h2>Self-Contained Code Blocks or Embedded Code</h2>        
+           <p>You can also embed funcitons without naming them.</p> 
+           <pre><code>
             (function() {
                 // block A
                 const name = 'Block A';
@@ -97,32 +117,33 @@ Note that the temp only exists when IIFE is invoked.
             }());
             <<  Hello from Block A
                 Hello from Block B
-        </p>
-
-        <p>
-            Functions that Return Functions
-            This is the best example to explain this ->
-            function greeter(greeting = 'Hello') {
-                return function() {
-                    console.log(greeting);
-                }
+           </code></pre> 
+          <h2>Functions that Return Functions</h2>  
+           <p>This is the best example to explain this -></p> 
+           <pre><code>
+        function greeter(greeting = 'Hello') {
+            return function() {
+                console.log(greeting);
             }
-            const englishGreeter = greeter();
-            englishGreeter();
-            << Hello
-            const frenchGreeter = greeter('Bonjour');
-            frenchGreeter();
-            << Bonjour
-            const germanGreeter = greeter('Guten Tag');
-            germanGreeter();
-            << Guten Tag
+        }
+        const englishGreeter = greeter();
+        englishGreeter();
+        << Hello
+        const frenchGreeter = greeter('Bonjour');
+        frenchGreeter();
+        << Bonjour
+        const germanGreeter = greeter('Guten Tag');
+        germanGreeter();
+        << Guten Tag
+           </code></pre> 
         </p>
 
-        <p>AJAX
-            grabs data from the internet and adds it to our code.
-            fetch('https://example.com/data')
+        <h2>AJAX</h2>
+          <p>grabs data from the internet and adds it to our code.</p>  
+            <pre><code>fetch('https://example.com/data')
 .then( // code that handles the response )
-.catch( // code that runs if the server returns an error )
+.catch( // code that runs if 
+the server returns an error )</code></pre>
         </p>
          <!-- Trigger/Open The Modal -->
 <button id="menuBtn">Menu</button>
