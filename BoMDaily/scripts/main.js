@@ -13,26 +13,28 @@
 
   const database = firebase.database();
 
-//   function readScripture(){
-//   const scriptureRef = database.ref('scriptures/English');
-//   scriptureRef.on('value', function(snapshot) {
-//     snapshot.forEach(snap => {
-//       const scripture = snap.val();
+  const titles = [];
+  const verses = [];
 
-//       const title = scripture.title;
-//       const titles = [title];
-//       const length = title.length;
-//       const index = Math.floor(Math.random() * length);
-//       const randomTitle = titles[index];
+  function readScripture(){
+  const scriptureRef = database.ref('scriptures/English');
+  scriptureRef.on('value', function(snapshot) {
+    snapshot.forEach(snap => {
+      const scripture = snap.val();
 
-//       document.querySelector('main').innerHTML = `
-//       <div>${randomTitle}</div>`
-
-//       console.log(randomTitle);
-//     })
-//   })
-// }
-// readScripture();
+      const title = scripture.title;
+      titles.push(title);
+      // console.log(randomTitle);
+    });
+    console.log(titles);
+    const length = titles.length;
+      const index = Math.floor(Math.random() * length);
+      const randomTitle = titles[index];
+      console.log(randomTitle);
+      return randomTitle;
+  })
+}
+readScripture();
 
   const topicRef = database.ref('topics');
   topicRef.on('value', gotTopics, errData);
@@ -47,11 +49,8 @@
       const length = keys.length;
       const index = Math.floor(Math.random() * length);
       const randomTopic = topic[index];
-      console.log(randomTopic);
-      document.querySelector('main').innerHTML = `
-    <div id="topic">${keys[1]}</div>
-
-    `
+      // console.log(randomTopic);
+      return randomTopic;
     // }
   }
 
@@ -69,7 +68,7 @@
     const main = document.querySelector('main');
     main.innerHTML = '';
     main.innerHTML += `
-  <div class="intro">${gotTopics}</div>
+  <div>${readScripture()}</div>
   
   `
   }
