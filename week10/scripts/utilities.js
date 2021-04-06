@@ -1,19 +1,19 @@
-export const getLocation = function (options) {
-    const getLocation = function (options) {
-        return new Promise(function (resolve, reject) {
-            navigator.geolocation.getCurrentPosition(resolve, reject, options);
-        });
-    };
-}
-
-
-export function getJSON(url) {
-    return fetch(url)
-        .then(function (response) {
+export async function getJSON(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        else {
             return response.json();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
-}
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+  }
+  export const getLocation = function(options) {
+    return new Promise(function(resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
+  };

@@ -12,33 +12,24 @@
     <main>
         <h1>Week 2 Notes/Code Examples</h1>
         <br>
-        <section>
-            <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
-                <button onclick="save1()">Save</button>
-            </div>
-            <div id="result"></div>
-        </section>
-        <br>
-        <section>
-            <div>
-                <label for="value">value</label>
-                <input type="number" id="value" name="value">
-                <button onclick="number()">Save</button>
-            </div>
-            <br>
-            <div id="result2"></div>
-        </section>
-        <div>
-        <input type="number" id="num1" name="num1">
-        <button onclick="adding()">+</button>
-        <input type="number" id="num2" name="num2">
-        <div id="results"></div>
-        </div>  
-    </main>
-
-    <section> 
+        <div id="team-container">
+        <a href="/week2/week2.html" id="team">Go To Team Assignment</a>
+    </div>
+        <h2>Const</h2>
+        <p>This code will never be assigned to another value</p>
+        <pre><code>const name = 'Alexa';</code></pre> 
+        <p>Using const prevents you from reassigning a variable to another object, as it will produce an error, as illustrated below:</p>
+        <pre><code>// declare object
+const name = { value: 'Alexa' };
+// attempt to reassign 
+to another object
+name = { value: 'Siri' }
+<< TypeError: Assignment to
+constant variable.</code></pre>
+        
+        <h2>Let</h2>
+        <p>This value may change later</p>
+        <pre><code>let score = 0;</code></pre>
         <!-- <h2>Notes Chapter 3</h2>
         <p>
             pop() - 

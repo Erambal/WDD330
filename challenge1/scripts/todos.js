@@ -16,7 +16,7 @@ function setTodoList() {
         let todoList = document.querySelector('ul');
         todoList.innerHTML = '';
 
-        console.log(todoList);
+        // console.log(todoList);
 
         todoItems.forEach((todoItem) => {
             todoList.innerHTML +=
@@ -47,28 +47,36 @@ function setTodoList() {
             }
         );
         // code to delete an item
-        const deleteItems = document.querySelectorAll('input[type="button"]');
-        deleteItems.forEach(
-            deleteItem => {
-                deleteItem.addEventListener('click', (event) => {
-                    // get the id of the delete button that was clicked
-                    const id = Number(event.target.value);
+        // const deleteItems = document.getElementsByClassName('deleted');
+        // deleteItems.forEach(
+        //     deleteItem => {
+        //         deleteItem.addEventListener('click', (event) => {
 
-                    // Find the todo in the todo array that was clicked and delete
+        //             // get the id of the delete button that was clicked
+        //             const deleted = Number(event.target.value);
 
-                    const deletedIndex = todoItems.IndexOf(x => x.Id === deletedIndex);
-                    todoItems.splice(deletedIndex, 1);
+        //             // // Find the todo in the todo array that was clicked and delete
 
-                    // Save todo list
-                    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+        //             const deletedIndex = todoItems.IndexOf(x => x.Id === deleted);
+        //             deletedIndex.remove();
+        //             // todoItems.splice(deletedIndex, 1);
 
-                    setTodoList();
-                });
-            }
-        );
+        //             // // Save todo list
+        //             localStorage.setItem("todoItems", JSON.stringify(todoItems));
+
+        //             setTodoList();
+        //         });
+        //     }
+        // );
     }
 
 }
+
+
+const deleteItem = document.getElementsByClassName('deleted');
+deleteItem.addEventListener('click', function(e) {
+    Node.parentNove.removeChild(node);
+});
 
 
 
