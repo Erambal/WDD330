@@ -15,7 +15,7 @@
 
   const titles = [];
   const verses = [];
-  const topics = [];
+  const categories = [];
 
   function readScripture(){
   const scriptureRef = database.ref('scriptures/English');
@@ -25,36 +25,34 @@
 
       const title = scripture.title;
       titles.push(title);
+      // console.log(title);
       // console.log(randomTitle);
     });
-    console.log(titles);
+    // console.log(titles);
     const length = titles.length;
       const index = Math.floor(Math.random() * length);
       const randomTitle = titles[index];
-      console.log(randomTitle);
       return randomTitle;
   })
 }
 readScripture();
 
-  const topicRef = database.ref('topics');
-  topicRef.on('value', gotTopics, errData);
-
-  function gotTopics(data) {
-    let topics = data.val();
+  function gotTopics() {
+    const topicRef = database.ref('topics');
+    topicRef.on('value', function(snapshot) {
+      snapshot.forEach(snap => {
+    let topics = snap.val();
     let keys = Object.keys(topics);
-    topics.push(keys);
-    // console.log(keys);
-    // for (var i = 0; i < keys.length; i++) {
-      console.log(topic);
-      // const k = keys;
-      // let topic = [k];
+
+    categories.push(keys);
+
+      });
       const length = topics.length;
       const index = Math.floor(Math.random() * length);
       const randomTopic = topic[index];
-      console.log(randomTopic);
+      // console.log(randomTopic);
       return randomTopic;
-    // }
+    })
   }
 
   // console.log(gotTopics);
