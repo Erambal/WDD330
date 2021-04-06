@@ -47,36 +47,34 @@ function setTodoList() {
             }
         );
         // code to delete an item
-        // const deleteItems = document.getElementsByClassName('deleted');
-        // deleteItems.forEach(
-        //     deleteItem => {
-        //         deleteItem.addEventListener('click', (event) => {
+        const deleteItems = document.querySelectorAll('input[type="button"]');
+        deleteItems.forEach(
+            deleteItem => {
+                deleteItem.addEventListener('click', (event) => {
 
-        //             // get the id of the delete button that was clicked
-        //             const deleted = Number(event.target.value);
+                    // get the id of the delete button that was clicked
+                    const id = Number(event.target.value);
 
-        //             // // Find the todo in the todo array that was clicked and delete
+                    // // Find the todo in the todo array that was clicked and delete
+                    const deletedIndex = todoItems.IndexOf(x => x.Id === id);
+                    todoItems.splice(deletedIndex, 1);
 
-        //             const deletedIndex = todoItems.IndexOf(x => x.Id === deleted);
-        //             deletedIndex.remove();
-        //             // todoItems.splice(deletedIndex, 1);
+                    // // Save todo list
+                    localStorage.removeItem("todoItems", JSON.stringify(todoItems));
 
-        //             // // Save todo list
-        //             localStorage.setItem("todoItems", JSON.stringify(todoItems));
-
-        //             setTodoList();
-        //         });
-        //     }
-        // );
+                    setTodoList();
+                });
+            }
+        );
     }
 
 }
 
 
-const deleteItem = document.getElementsByClassName('deleted');
-deleteItem.addEventListener('click', function(e) {
-    Node.parentNove.removeChild(node);
-});
+// const deleteItem = document.getElementsByClassName('deleted');
+// deleteItem.addEventListener('click', function(e) {
+//     Node.parentNove.removeChild(node);
+// });
 
 
 

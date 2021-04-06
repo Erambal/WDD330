@@ -15,6 +15,7 @@
 
   const titles = [];
   const verses = [];
+  const topics = [];
 
   function readScripture(){
   const scriptureRef = database.ref('scriptures/English');
@@ -42,14 +43,16 @@ readScripture();
   function gotTopics(data) {
     let topics = data.val();
     let keys = Object.keys(topics);
+    topics.push(keys);
     // console.log(keys);
     // for (var i = 0; i < keys.length; i++) {
-      const k = keys;
-      let topic = [k];
-      const length = keys.length;
+      console.log(topic);
+      // const k = keys;
+      // let topic = [k];
+      const length = topics.length;
       const index = Math.floor(Math.random() * length);
       const randomTopic = topic[index];
-      // console.log(randomTopic);
+      console.log(randomTopic);
       return randomTopic;
     // }
   }

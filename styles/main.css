@@ -33,9 +33,18 @@ h2 {
   text-decoration: underline;
   color: teal;
 }
+h3{
+  font-size: 25px;
+}
 p{
     padding: 7%;
     font-size: 20px;
+}
+img {
+  width: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  border: 5px orange solid;
 }
 pre code {
     background-color: #eee;
@@ -46,20 +55,45 @@ pre code {
     width: 100%;
     word-wrap: break-word;
 }
+.typewriter h3 {
+  width: 80%;
+  color: black;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .1em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .1em; /* Adjust as needed */
+  animation: 
+    typing 5s steps(30, end),
+    blink-caret .5s step-end infinite alternate;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 80% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
 #team-container {
   width: 100%;
   text-align: center;
   margin-bottom: 20px;
 }
 
-#team {
+a#team {
   list-style-type: none;
   text-decoration: none;
   background-color: teal;
   color: white;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   font-size: large;
+  margin-top: 20px;
 }
 #menuBtn {
     position: fixed;
@@ -71,6 +105,16 @@ pre code {
     color: white;
     background-color: teal;
     font-size: 30px;
+}
+#scroll {
+  position: absolute;
+	bottom: 20px;
+	left: 50%;
+	z-index: 2;
+	display: inline-block;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	text-decoration: none;
 }
 .modal {
     display: none; /* Hidden by default */
