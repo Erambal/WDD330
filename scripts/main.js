@@ -4,7 +4,7 @@ let ol = document.querySelector('ol');
 const links = [
 {
     label: "Home",
-    url: "/index.html"
+    url: "../index.html"
 },
 {
     label: "Week 1 notes",
