@@ -61,8 +61,12 @@ const links = [
 }
 ,
 {
-    label: "Week 12 notes",
-    url: "../week12/index.html"
+    label: "BoM Daily",
+    url: "/BoMDaily/index.html"
+},
+{
+    label: "To-Do List",
+    url: "/challenge1/index.html"
 }
 ];
 
